@@ -53,36 +53,13 @@ class Department:
             self.courses.append(course)
 
 
-class Library:
-    def __init__(self):
-        self.books = []
-
-    def add_book(self, book):
-        self.books.append(book)
-
-    def display_books(self):
-        for book in self.books:
-            print(book)
-
-
-class Administration:
-    def __init__(self):
-        self.staff = []
-
-    def add_staff(self, person):
-        if isinstance(person, Person):
-            self.staff.append(person)
-
-
 class Academy:
-    def __init__(self, name, library=None, administration=None):
+    def __init__(self, name):
         self.name = name
         self.teachers = []
         self.students = []
         self.subjects = []
         self.departments = []
-        self.library = library if library else Library()
-        self.administration = administration if administration else Administration()
 
     def add_teacher(self, teacher):
         if isinstance(teacher, Teacher):
@@ -101,19 +78,16 @@ class Academy:
             self.departments.append(department)
 
     def show_info(self):
-        print(f"Academy: {self.name}")
+        print(f"Academy Name: {self.name}")
         print("\nTeachers:")
         for teacher in self.teachers:
             teacher.show_info()
-
         print("\nStudents:")
         for student in self.students:
             student.show_info()
-
         print("\nSubjects:")
         for subject in self.subjects:
             print(subject.name)
-
         print("\nDepartments:")
         for department in self.departments:
             print(department.name)
